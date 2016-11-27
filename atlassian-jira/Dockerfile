@@ -1,13 +1,13 @@
 FROM relateiq/oracle-java8
 
-ENV JIRA_VERSION 7.2.3
+ENV JIRA_VERSION 7.2.4
 ENV JIRA_HOME /opt/jira-home
 ENV HOME /opt/jira-home
 
 RUN mkdir /opt/jira && \
     mkdir /opt/jira-home
 RUN wget -O - \
-      http://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-${JIRA_VERSION}.tar.gz \
+      https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-${JIRA_VERSION}.tar.gz \
       | tar xzf - --strip=1 -C /opt/jira \
     && perl -i -p -e 's/^JVM_SUPPORT/#JVM_SUPPORT/' /opt/jira/bin/setenv.sh
 
